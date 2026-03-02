@@ -21,6 +21,13 @@ for skill_md in "${skill_files[@]}"; do
     fi
   done
 
+  # Check for duplicate version: keys
+  version_count=$(grep -c "^version:" "$skill_md" || true)
+  if [[ "$version_count" -gt 1 ]]; then
+    echo "ERROR: $skill/SKILL.md has $version_count duplicate 'version:' keys"
+    ERRORS=$((ERRORS + 1))
+  fi
+
   # Validate semver format (|| true prevents set -e from firing when version: field is absent)
   version=$(grep "^version:" "$skill_md" | sed 's/version:[[:space:]]*//' | tr -d '"'"'" | tr -d '\r' | head -1 || true)
   if [[ -n "$version" ]] && ! echo "$version" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
