@@ -519,3 +519,22 @@ npx tsx scripts/linear-ops.ts project-status "My Project" completed
 | [docs/labels.md](docs/labels.md) | Label taxonomy |
 
 **External:** [Linear MCP Documentation](https://linear.app/docs/mcp.md)
+
+---
+
+## Changelog
+
+### v2.0.0 (2026-03)
+- **Breaking**: Switch MCP setup to official `claude mcp add --transport http` command
+- Remove `mcp-remote` proxy workaround (previously required for header injection)
+- Simplify MCP configuration — no longer requires `settings.local.json` edits
+- Authentication via `/mcp` OAuth flow in Claude Code session
+
+### v1.0.0 (2025-12)
+- Initial release
+- GraphQL API reference with timeout handling
+- SDK automation scripts (`@linear/sdk`)
+- Project lifecycle commands (`create-project`, `project-status`, `link-initiative`)
+- Domain-based label taxonomy
+- Bulk sync patterns via `Linear-specialist` subagent
+- Varlock integration for secure API key handling

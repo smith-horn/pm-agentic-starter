@@ -75,3 +75,13 @@ When triggered, **immediately**:
 - Linear MCP (optional, for issue tracking)
 
 For full execution details, see [agent-prompt.md](agent-prompt.md).
+
+## Changelog
+
+### v1.0.0 (2026-03)
+- Initial public release
+- 11-step hive mind execution workflow
+- claude-flow MCP integration (`swarm_init`, `agent_spawn`, `task_orchestrate`, `swarm_destroy`)
+- Automatic governance audit after execution
+- Context persistence across sessions (`context-persistence.md`)
+- Workflow templates for common task types

@@ -67,3 +67,23 @@ Only proceed to Dispatch if the user confirms, or if either check returns output
 Use the Task tool with subagent_type="general-purpose" and pass the full contents
 of ./agent-prompt.md as the prompt.
 ```
+
+## Changelog
+
+### v1.2.0 (2026-02)
+- **New**: Pre-dispatch check — skip agent spawn when repo is already clean
+- **New**: Two-dot diff gate for unreleased content detection
+- **New**: `--no-verify` consent rule — never bypass hooks without explicit user approval
+- **New**: Abort-gracefully rule — clean state report when user cancels mid-run
+
+### v1.1.0 (2026-01)
+- **New**: Thin dispatcher pattern — full workflow extracted to `agent-prompt.md`
+- **New**: Cherry-pick to main for docs-only commits on merged branches
+- **New**: Worktree cleanup phase using project `remove-worktree.sh` script
+- **New**: Squash-merge artifact filtering in branch audit
+
+### v1.0.0 (2025-12)
+- Initial release
+- Five-phase workflow: Doc Review, Branch Audit, Branch Cleanup, Worktree Cleanup, Final State
+- Guided decision pattern — audit first, delete only with user approval
+- Remote sync and main branch verification

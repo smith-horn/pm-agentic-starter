@@ -1,5 +1,6 @@
 ---
 name: varlock
+version: "1.0.0"
 description: Secure environment variable management with Varlock. Use when handling secrets, API keys, credentials, or any sensitive configuration. Ensures secrets are never exposed in terminals, logs, traces, or Claude's context. Trigger phrases include "environment variables", "secrets", ".env", "API key", "credentials", "sensitive", "Varlock".
 ---
 
@@ -429,5 +430,17 @@ Add these to your package.json:
 
 ---
 
-*Last updated: December 22, 2025*
+## Changelog
+
+### v1.0.0 (2025-12)
+- Initial release
+- Core security rules: never echo secrets, never read `.env` directly
+- `.env.schema` with type annotations (`@sensitive`, `@required`, type validation)
+- `varlock load` / `varlock run` command patterns
+- External secret source support (1Password, AWS Secrets Manager)
+- CI/CD and Docker integration patterns
+
+---
+
+*Last updated: December 2025*
 *Secure-by-default environment management for Claude Code*
