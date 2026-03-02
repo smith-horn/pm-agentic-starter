@@ -138,4 +138,4 @@ Progressive disclosure for oversized CLAUDE.md files.
 
 ---
 
-[1.0.0]: https://github.com/smith-horn/pm-agentic-starter/releases/tag/v1.0.0
+[1.0.0]: https://github.com/smith-horn/product-builder-starter/releases/tag/v1.0.0

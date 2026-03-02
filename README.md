@@ -23,30 +23,30 @@ Each skill is a directory you copy into `~/.claude/skills/`. Clone this repo, th
 
 ```bash
 # Clone the starter pack
-git clone https://github.com/smith-horn/pm-agentic-starter.git ~/pm-agentic-starter
+git clone https://github.com/smith-horn/product-builder-starter.git ~/product-builder-starter
 
 # Install all 11 skills at once
-cp -r ~/pm-agentic-starter/skills/governance ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/plan-review-skill ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/launchpad ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/wave-planner ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/hive-workers-skill ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/worktree-manager ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/linear ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/varlock ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/docker ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/session-cleanup ~/.claude/skills/
-cp -r ~/pm-agentic-starter/skills/claude-md-optimizer ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/governance ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/plan-review-skill ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/launchpad ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/wave-planner ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/hive-workers-skill ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/worktree-manager ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/linear ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/varlock ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/docker ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/session-cleanup ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/claude-md-optimizer ~/.claude/skills/
 ```
 
 Or install individual skills:
 
 ```bash
 # Linear only
-cp -r ~/pm-agentic-starter/skills/linear ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/linear ~/.claude/skills/
 
 # Docker only
-cp -r ~/pm-agentic-starter/skills/docker ~/.claude/skills/
+cp -r ~/product-builder-starter/skills/docker ~/.claude/skills/
 ```
 
 After copying, skills activate automatically based on trigger phrases in your next Claude Code session.
