@@ -84,12 +84,20 @@ Parallel git worktrees with Docker isolation and conflict prevention.
 
 ---
 
-#### `linear` v2.0.0
+#### `linear` v2.2.3
 
 Issue, project, and initiative management via MCP or CLI.
 
-- **v2.0.0** (2026-03): Switch MCP setup to official `claude mcp add --transport http` command; remove `mcp-remote` proxy workaround; OAuth via `/mcp` in Claude Code session
-- **v1.0.0** (2025-12): Initial release — GraphQL API, `@linear/sdk` automation, project lifecycle commands, label taxonomy, bulk sync patterns, Varlock integration
+- **v2.2.3** (2026-02-10): Varlock environment schema; replace all hardcoded `~/.claude/skills/linear` paths with relative paths
+- **v2.2.0** (2026-01-24): Add semantic-release for automated versioning
+- **v2.1.1** (2026-01-24): CI/CD GitHub Actions; TypeScript fixes for Linear SDK v68
+- **v2.1.0** (2026-01-23): `Linear-specialist` subagent for parallel bulk operations
+- **v2.0.0** (2026-01-18): Restructured for Claude Code skill discovery; all files at root level
+- **v1.7.0** (2026-01-16): Domain-based label taxonomy; `labels validate/suggest/agents` commands
+- **v1.6.0** (2026-01-11): `project-status`, `link-initiative`, `unlink-initiative` commands
+- **v1.5.0** (2025-12-28): Migrate to official Linear MCP server at `mcp.linear.app`
+- **v1.4.0** (2025-12-26): First-time setup script; `linear-ops.ts` high-level CLI
+- **v1.0.0** (2025-12-20): Initial release — MCP integration, GraphQL API fallback, SDK automation
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: Linear
 description: Managing Linear issues, projects, and teams. Use when working with Linear tasks, creating issues, updating status, querying projects, or managing team workflows.
-version: "2.0.0"
+version: "2.2.3"
 author: wrsmith108
 allowed-tools:
   - mcp__linear
@@ -524,17 +524,55 @@ npx tsx scripts/linear-ops.ts project-status "My Project" completed
 
 ## Changelog
 
-### v2.0.0 (2026-03)
-- **Breaking**: Switch MCP setup to official `claude mcp add --transport http` command
-- Remove `mcp-remote` proxy workaround (previously required for header injection)
-- Simplify MCP configuration — no longer requires `settings.local.json` edits
-- Authentication via `/mcp` OAuth flow in Claude Code session
+### v2.2.3 (2026-02-10)
+- Add Varlock environment schema for secure secret management
+- Cross-skill hardcoded path audit — all `~/.claude/skills/linear` references replaced with relative paths
 
-### v1.0.0 (2025-12)
-- Initial release
-- GraphQL API reference with timeout handling
-- SDK automation scripts (`@linear/sdk`)
-- Project lifecycle commands (`create-project`, `project-status`, `link-initiative`)
-- Domain-based label taxonomy
-- Bulk sync patterns via `Linear-specialist` subagent
-- Varlock integration for secure API key handling
+### v2.2.0 (2026-01-24)
+- Add semantic-release for automated versioning
+
+### v2.1.1 (2026-01-24)
+- CI/CD GitHub Actions workflows for automated validation and releases
+- TypeScript compatibility fixes for Linear SDK v68
+
+### v2.1.0 (2026-01-23)
+- **New**: `Linear-specialist` subagent for parallel/background bulk operations
+- Delegation guidance: when to use parallel vs direct execution
+
+### v2.0.0 (2026-01-18)
+- **Breaking**: Restructured for Claude Code skill discovery — all files moved to root level
+- `SKILL.md` now at repository root for automatic discovery by Claude Code
+
+### v1.7.0 (2026-01-16)
+- Domain-based label taxonomy system — 25 labels across Type, Domain, Scope categories
+- `labels validate`, `labels suggest`, `labels agents` CLI commands
+- `docs/labels.md` with complete taxonomy guide and decision tree
+
+### v1.6.1 (2026-01-12)
+- Remove 8 obsolete phase-specific scripts; generalize all examples to `ENG-` prefix
+
+### v1.6.0 (2026-01-11)
+- `project-status` command — update project states with user-friendly terminology
+- `link-initiative` / `unlink-initiative` commands
+- Project planning workflow documentation
+
+### v1.5.0 (2025-12-28)
+- **Breaking**: Migrate to Linear's official MCP server at `mcp.linear.app`
+- Deprecated community servers no longer supported
+- Status updates now work with human-readable names (`state: "Done"`)
+
+### v1.4.0 (2025-12-26)
+- `scripts/setup.ts` — first-time setup check and diagnostics
+- `scripts/linear-ops.ts` — high-level operations CLI
+
+### v1.3.0 (2025-12-24)
+- API-first guidance for high-frequency operations; helper scripts preferred over MCP for status updates
+
+### v1.2.0 (2025-12-23)
+- Codebase verification before work (MANDATORY) — detect already-implemented features before starting
+
+### v1.1.0 (2025-12-21)
+- Bulk sync patterns; `sync.md`; `Linear-specialist` parallel agent spawning
+
+### v1.0.0 (2025-12-20)
+- Initial release — MCP tool integration, GraphQL API fallback, SDK automation, project management workflows
