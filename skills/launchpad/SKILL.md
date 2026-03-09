@@ -1,6 +1,6 @@
 ---
 name: Launchpad
-version: 1.2.0
+version: 1.2.1
 description: "End-to-end planning and execution orchestrator. Chains SPARC or wave-planner (Stage 1), plan-review, linear, and hive-workers-skill into a single workflow. Automatically routes infra changes through SPARC research instead of wave-planner. Use when starting a new initiative, executing a set of Linear issues, or running plan-to-deployment."
 author: wrsmith108
 triggers:
@@ -87,6 +87,10 @@ Stage 1b (wave-planner) for everything else. Mixed scope → use Stage 1a.
 Override with flags: `--infra` forces Stage 1a, `--feature` forces Stage 1b.
 
 ## Changelog
+
+### v1.2.1 (2026-03-09)
+- Section 2: Dual-path hive execution skill detection — check both `hive-workers-skill` and `hive-mind-execution` at user-level and project-level paths
+- Section 7: Use resolved `HWS_PATH` instead of hardcoded path for hive execution skill
 
 ### v1.2.0 (2026-02-19)
 - Section 2: Add MISSING/OK skill classification with explicit consent gate for optional skills

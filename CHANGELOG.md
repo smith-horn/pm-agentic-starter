@@ -6,6 +6,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ---
 
+## [1.0.1] — 2026-03-09
+
+### Fixed
+
+#### `launchpad` v1.2.1
+
+- Section 2: Dual-path hive execution skill detection — check both `hive-workers-skill` (product-builder-starter) and `hive-mind-execution` (skillsmith) at user-level and project-level paths
+- Section 7: Use resolved `HWS_PATH` instead of hardcoded path for hive execution skill
+
+---
+
 ## [1.0.0] — 2026-03-01
 
 Initial public release of the Product Builder Starter Pack.
@@ -39,10 +50,11 @@ Multi-perspective plan review — VP Product, VP Engineering, VP Design.
 
 ---
 
-#### `launchpad` v1.2.0
+#### `launchpad` v1.2.1
 
 End-to-end orchestrator: plan → review → Linear issues → execute.
 
+- **v1.2.1** (2026-03-09): Dual-path hive execution skill detection — supports both `hive-workers-skill` and `hive-mind-execution` at user-level and project-level paths
 - **v1.2.0** (2026-02-19): MISSING/OK skill classification with explicit consent gate for optional skills; explicit AskUserQuestion consent gate for Stage 4
 - **v1.1.0** (2026-02-18): Stage 0 infra detection routing; `sparc-methodology` as Stage 1a; `--infra` / `--feature` override flags
 - **v1.0.0**: Initial release — 4-stage pipeline, interruptible stage gates, resume detection, skill existence checks
@@ -138,4 +150,5 @@ Progressive disclosure for oversized CLAUDE.md files.
 
 ---
 
+[1.0.1]: https://github.com/smith-horn/product-builder-starter/releases/tag/v1.0.1
 [1.0.0]: https://github.com/smith-horn/product-builder-starter/releases/tag/v1.0.0

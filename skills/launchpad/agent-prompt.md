@@ -52,7 +52,16 @@ Before starting, verify all composed skills are accessible. Read each file to co
 
 **Optional**:
 - `~/.claude/skills/plan-review-skill/agent-prompt.md` — Stage 2 (user-level)
-- `~/.claude/skills/hive-workers-skill/agent-prompt.md` — Stage 4 (user-level)
+- Hive execution skill — Stage 4 (checked at multiple paths, see below)
+
+Check the following hive execution skill paths in order:
+1. `~/.claude/skills/hive-workers-skill/agent-prompt.md` (user-level, product-builder-starter)
+2. `.claude/skills/hive-workers-skill/agent-prompt.md` (project-level, product-builder-starter)
+3. `~/.claude/skills/hive-mind-execution/agent-prompt.md` (user-level, skillsmith)
+4. `.claude/skills/hive-mind-execution/agent-prompt.md` (project-level, skillsmith)
+
+If **any** path is OK, set `HWS_STATUS = "OK"` and `HWS_PATH = <resolved path>`.
+If all are MISSING, set `HWS_STATUS = "MISSING"`.
 
 For each skill file, classify as MISSING or OK:
 - **MISSING**: file does not exist
@@ -62,18 +71,21 @@ Store results: `SKILL_STATUS[<path>] = MISSING | OK`
 
 **If a required skill is MISSING**:
 ```
-ABORT: Required skill not found: {path}. Install it from the pm-agentic-starter pack or Skillsmith registry.
+ABORT: Required skill not found: {path}. Install it from the product-builder-starter pack or Skillsmith registry.
 ```
 
 **If plan-review-skill is MISSING**: set `SKIP_REVIEW = true`, log:
-  "plan-review-skill not installed at ~/.claude/skills/plan-review-skill/agent-prompt.md — skipping Stage 2.
-  Install: cp -r ~/pm-agentic-starter/skills/plan-review-skill ~/.claude/skills/"
+  "plan-review-skill not installed at ~/.claude/skills/plan-review-skill/agent-prompt.md — skipping Stage 2."
 
-**If hive-workers-skill is MISSING**: set `HWS_STATUS = "MISSING"`, log:
-  "hive-workers-skill not found at ~/.claude/skills/hive-workers-skill/agent-prompt.md.
-  Install it: cp -r ~/pm-agentic-starter/skills/hive-workers-skill ~/.claude/skills/"
+**If hive execution skill is MISSING** (all paths checked): set `HWS_STATUS = "MISSING"`, log:
+  "hive execution skill not found at any checked path:
+    - ~/.claude/skills/hive-workers-skill/agent-prompt.md
+    - .claude/skills/hive-workers-skill/agent-prompt.md
+    - ~/.claude/skills/hive-mind-execution/agent-prompt.md
+    - .claude/skills/hive-mind-execution/agent-prompt.md"
 
-**If hive-workers-skill is OK**: set `HWS_STATUS = "OK"`.
+**If hive execution skill is OK**: set `HWS_STATUS = "OK"`, `HWS_PATH = <resolved path>`.
+  Log: "hive execution skill resolved at {HWS_PATH}"
 
 ---
 
@@ -345,7 +357,7 @@ AskUserQuestion:
 
 ## Section 7: Stage 4 — Execute
 
-**Skill**: hive-workers-skill (user-level, optional)
+**Skill**: hive-workers-skill or hive-mind-execution (optional — resolved as `HWS_PATH` in Section 2)
 **Input**: Wave plan + Linear issue IDs per wave
 **Output**: Code changes, PRs, completed issues
 
@@ -395,13 +407,13 @@ For each wave (1 to WAVE_COUNT):
 1. Read hive config at `.claude/hive-mind/{PROJECT_SLUG}-wave-{n}.yaml`
    - If config doesn't exist, warn and offer to skip this wave
 2. Log: `"[Stage 4/4: EXECUTE] Starting Wave {n}/{WAVE_COUNT}: {wave_title}"`
-3. Read `~/.claude/skills/hive-workers-skill/agent-prompt.md`
+3. Read `{HWS_PATH}` (resolved in Section 2)
 4. Spawn Task:
    ```
    Task({
      description: "Execute Wave {n} of {PROJECT_NAME}",
      subagent_type: "general-purpose",
-     prompt: "<hive-workers-skill agent-prompt content>\n\n---\n\nExecute this wave:
+     prompt: "<hive execution skill agent-prompt content from {HWS_PATH}>\n\n---\n\nExecute this wave:
      Linear issues for this wave: {WAVE_ISSUES[n]}
      Working directory: {CWD}
      Plan: {PLAN_PATH}
